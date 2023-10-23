@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <script src="https://kit.fontawesome.com/e537c707fa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/src/home.css">
+</head>
+<body>
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Payment Details</h2>
+            <br>
+            <div id="totalAmountContainer">
+                <p id="totalAmount">Total Amount: ₦</p>
+            </div>
+            <br>
+            <p>Account Number: 1234567890 <i class="fa-solid fa-copy fa-fade"></i></p>
+            <br>
+            <p>Account Name: Your Name</p>
+            <br>
+            <p>Bank<i class="fa-solid fa-building-columns" style="color: #010005;"></i>: First City Monument Bank (FCMB)</p>
+            <br>
+            <input type="radio" name="paymentMethod" value="online"><p>Online Payment</p>
+            <br>
+            <input type="radio" name="paymentMethod" value="delivery"><p>Payment on Delivery</p>
+            <br>
+            <button id="confirmPaymentButton">Confirm Payment</button>
+        </div>
+    </div>
+    <script>
+        // Function to calculate the total price
+        const calculateTotalPrice = () => {
+            let totalBill = 0;
+            for (const itemId in itemQuantities) {
+                const quantity = itemQuantities[itemId];
+                const itemPrice = getItemPrice(itemId);
+                totalBill += quantity * itemPrice;
+            }
+    
+            // Navigate to the linked webpage with the total as a query parameter
+            const url = `checkout-modal.html?total=${totalBill}`;
+            window.location.href = url;
+        };
+    
+        // Attach an event listener to the "Calculate Total Price" button
+        const calculateButton = document.getElementById('calculateButton');
+        calculateButton.addEventListener('click', calculateTotalPrice);
+    </script>
+    
+</body>
+</html>
+id="copyAccountButton"
++2349075893814
